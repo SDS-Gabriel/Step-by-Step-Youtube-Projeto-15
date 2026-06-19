@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+
+body {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+#check { display: none; }
+
+/* Sidebar com efeito de Vidro (Glassmorphism) */
+.sidebar {
+    position: fixed; left: -300px; width: 300px; height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+header { 
+    font-size: 24px; color: white; padding: 40px 30px; 
+    font-weight: 600; letter-spacing: 2px;
+}
+
+.sidebar ul li a { 
+    display: block; color: #fff; padding: 20px 30px;
+    text-decoration: none; font-size: 16px;
+    transition: 0.3s; margin: 10px 15px; border-radius: 12px;
+}
+
+/* Efeito de Hover Luxuoso */
+.sidebar ul li a:hover { 
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 45px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.sidebar ul li a i { margin-right: 15px; }
+
+/* Botão de Toggle */
+label #btn, label #cancel {
+    position: absolute; cursor: pointer; color: white;
+    font-size: 25px; top: 20px; left: 20px; transition: 0.3s;
+}
+
+#check:checked ~ .sidebar { left: 0; }
+#check:checked ~ label #btn { opacity: 0; }
+#check:checked ~ label #cancel { opacity: 1; }
